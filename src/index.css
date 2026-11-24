@@ -1,0 +1,266 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #08090E;
+  --color-bg-secondary: #0E111A;
+  --color-bg-card: #141824;
+  --color-bg-light: #F8FAFC;
+
+  --color-brand-blue: #0066FF;
+  --color-brand-cyan: #00D2FF;
+  --color-brand-sky: #38BDF8;
+  --color-brand-dark-blue: #0047BA;
+  --color-brand-silver: #CBD5E1;
+
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-text-dark: #0F172A;
+  --color-text-muted: #64748B;
+
+  --color-border-card: #22293D;
+  --color-border-subtle: #191E2E;
+  --color-border-light: #E2E8F0;
+
+  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root {
+  --bg-primary: #08090E;
+  --bg-secondary: #0E111A;
+  --bg-card: #141824;
+  --bg-light: #F8FAFC;
+  --brand-blue: #0066FF;
+  --brand-cyan: #00D2FF;
+  --brand-sky: #38BDF8;
+  --brand-silver: #CBD5E1;
+  --brand-gradient: linear-gradient(110deg, #0052D4 0%, #0066FF 45%, #00D2FF 100%);
+  --brand-border: #22293D;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-dark: #0F172A;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #08090E;
+  color: #F8FAFC;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #08090E;
+  color: #F8FAFC;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================================
+   LOGO-THEMED GRADIENTS (Chrome Silver + Electric Blue + Cyan)
+   ======================================================== */
+
+.purple-gradient-text,
+.brand-gradient-text {
+  background: linear-gradient(110deg, #0066FF 0%, #00D2FF 50%, #E0F2FE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.chrome-text {
+  background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 50%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Premium Primary Button with Shimmer Sweep */
+.purple-gradient-btn,
+.brand-gradient-btn {
+  position: relative;
+  background: linear-gradient(110deg, #0047BA 0%, #0066FF 50%, #00C6FF 100%);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-shadow: 0 4px 15px -2px rgba(0, 102, 255, 0.4), 0 0 10px rgba(0, 210, 255, 0.2);
+}
+
+.purple-gradient-btn::before,
+.brand-gradient-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.6s ease;
+}
+
+.purple-gradient-btn:hover::before,
+.brand-gradient-btn:hover::before {
+  left: 100%;
+}
+
+.purple-gradient-btn:hover,
+.brand-gradient-btn:hover {
+  background: linear-gradient(110deg, #0052D4 0%, #0072FF 50%, #00D2FF 100%);
+  box-shadow: 0 6px 24px -2px rgba(0, 102, 255, 0.6), 0 0 20px rgba(0, 210, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.purple-gradient-btn:active,
+.brand-gradient-btn:active {
+  transform: translateY(0);
+}
+
+/* Outline Secondary Button */
+.brand-outline-btn {
+  background: #141824;
+  border: 1px solid #22293D;
+  color: #F8FAFC;
+  transition: all 0.22s ease;
+}
+
+.brand-outline-btn:hover {
+  border-color: #00D2FF;
+  color: #38BDF8;
+  background: #191F30;
+  box-shadow: 0 4px 16px -2px rgba(0, 210, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ========================================================
+   STUDIO CARD WITH ATTRACTIVE ELECTRIC BLUE GLOW & SHEEN
+   ======================================================== */
+.studio-card {
+  position: relative;
+  background-color: #141824;
+  border: 1px solid #22293D;
+  border-radius: 1rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.studio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0066FF, #00D2FF, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.studio-card:hover::before {
+  opacity: 1;
+}
+
+.studio-card:hover {
+  border-color: rgba(0, 210, 255, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.8),
+              0 0 25px -4px rgba(0, 102, 255, 0.25);
+}
+
+/* Subtle Interactive Animations */
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-subtle-float {
+  animation: subtleFloat 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.28;
+    transform: scale(1.04);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* 3D Transform Utilities & Holographic Lighting */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+@keyframes neonOrbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-neon-orbit {
+  animation: neonOrbit 20s linear infinite;
+}
+
+/* Light Section styles as per prompt instructions */
+.light-section {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+/* Selection */
+::selection {
+  background: #0066FF;
+  color: #FFFFFF;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #08090E;
+}
+::-webkit-scrollbar-thumb {
+  background: #22293D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0066FF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
